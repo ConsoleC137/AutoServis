@@ -46,7 +46,7 @@ namespace AutoServis.Pages
 
                     if (result != null)
                     {
-                        MessageBox.Show("Вы админ");
+                        this.Frame.Navigate(new Pages.PageAdmin());
                     }
                     else
                     {
