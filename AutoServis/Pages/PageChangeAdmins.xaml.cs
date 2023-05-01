@@ -196,6 +196,12 @@ namespace AutoServis.Pages
                 dataGridAdmins.Items.Refresh();
             }
         }
+
+        private void buttonBack_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.GoBack();
+        }
+        
     }
 
     public class Admin
