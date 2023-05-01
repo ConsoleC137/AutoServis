@@ -9,10 +9,10 @@
       Title="PageAdmin">
 
     <Grid>
-        <Button x:Name="buttonChageAdmins" Content="Изменить список администраторов" HorizontalAlignment="Center" Margin="0,140,0,0" VerticalAlignment="Top" Width="294" FontSize="16" Cursor="Hand" Background="#FFE00067" Foreground="White" FontWeight="Bold"/>
-        <Button x:Name="buttonChageMasters" Content="Изменить список мастеров" HorizontalAlignment="Center" Margin="0,185,0,0" VerticalAlignment="Top" Width="294" FontSize="16" Cursor="Hand" Background="#FFE00067" Foreground="White" FontWeight="Bold"/>
-        <Button x:Name="buttonChageClients" Content="Изменить список клиентов" HorizontalAlignment="Center" Margin="0,234,0,0" VerticalAlignment="Top" Width="294" FontSize="16" Cursor="Hand" Background="#FFE00067" Foreground="White" FontWeight="Bold"/>
-        <Button x:Name="buttonChageOrders" Content="Изменить список заказов" HorizontalAlignment="Center" Margin="0,281,0,0" VerticalAlignment="Top" Width="294" FontSize="16" Cursor="Hand" Background="#FFE00067" Foreground="White" FontWeight="Bold"/>
+        <Button x:Name="buttonChageAdmins" Content="Изменить список администраторов" HorizontalAlignment="Center" Margin="0,115,0,0" VerticalAlignment="Top" Width="294" FontSize="16" Cursor="Hand" Background="#FFE00067" Foreground="White" FontWeight="Bold" Click="buttonChageAdmins_Click" Height="40"/>
+        <Button x:Name="buttonChageMasters" Content="Изменить список мастеров" HorizontalAlignment="Center" Margin="0,176,0,0" VerticalAlignment="Top" Width="294" FontSize="16" Cursor="Hand" Background="#FFE00067" Foreground="White" FontWeight="Bold" Click="buttonChageMasters_Click" Height="40"/>
+        <Button x:Name="buttonChageClients" Content="Изменить список клиентов" HorizontalAlignment="Center" Margin="0,234,0,0" VerticalAlignment="Top" Width="294" FontSize="16" Cursor="Hand" Background="#FFE00067" Foreground="White" FontWeight="Bold" Click="buttonChageClients_Click" Height="40"/>
+        <Button x:Name="buttonChageOrders" Content="Изменить список заказов" HorizontalAlignment="Center" Margin="0,295,0,0" VerticalAlignment="Top" Width="294" FontSize="16" Cursor="Hand" Background="#FFE00067" Foreground="White" FontWeight="Bold" Click="buttonChageOrders_Click" Height="40"/>
 
     </Grid>
 </Page>
