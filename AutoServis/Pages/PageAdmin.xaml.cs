@@ -39,7 +39,7 @@ namespace AutoServis.Pages
 
         private void buttonChageClients_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Frame.Navigate(new Pages.PageChangeClients(Frame));
         }
 
         private void buttonChageOrders_Click(object sender, RoutedEventArgs e)
