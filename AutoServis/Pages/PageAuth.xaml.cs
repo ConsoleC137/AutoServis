@@ -1,19 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Data.SQLite;
-using System.Data.SqlClient;
 
 namespace AutoServis.Pages
 {
@@ -26,7 +13,7 @@ namespace AutoServis.Pages
         public PageAuth(Frame frame)
         {
             InitializeComponent();
-            this.Frame = frame;
+            Frame = frame;
         }
 
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
@@ -45,9 +32,7 @@ namespace AutoServis.Pages
                     var result = command.ExecuteScalar();
 
                     if (result != null)
-                    {
-                        this.Frame.Navigate(new Pages.PageAdmin());
-                    }
+                        Frame.Navigate(new Pages.PageAdmin(Frame));
                     else
                     {
                         command.CommandText = "SELECT id FROM masters WHERE login = @login AND password = @password";
@@ -57,13 +42,9 @@ namespace AutoServis.Pages
                         result = command.ExecuteScalar();
 
                         if (result != null)
-                        {
-                            MessageBox.Show("Вы мастер");
-                        }
+                            Frame.Navigate(new Pages.PageMaster(Frame));
                         else
-                        {
                             LabelAuth.Content = "Неверный логин/пароль";
-                        }
                     }
                 }
             }

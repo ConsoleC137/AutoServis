@@ -3,41 +3,44 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:AutoServis.Pages"
+      xmlns:local="clr-namespace:AutoServis.Pages" xmlns:sys="clr-namespace:System;assembly=mscorlib"
       mc:Ignorable="d" 
-      d:DesignHeight="450"
-      Title="PageChandeOrders" Width="450">
+      d:DesignHeight="450" d:DesignWidth="900"
+      Title="PageChandeOrders">
 
     <Grid>
-        <DataGrid x:Name="dataGridOrders" AutoGenerateColumns="False" ItemsSource="{Binding Orders}" Margin="10,225,10,10">
+        <DataGrid x:Name="dataGridOrders" AutoGenerateColumns="False" ItemsSource="{Binding Orders}" Margin="10,173,10,10">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding ID}" FontSize="14" IsReadOnly="True"/>
-                <DataGridTextColumn Header="ID клиента" Binding="{Binding IDClient}" FontSize="14"/>
-                <DataGridTextColumn Header="ID мастера" Binding="{Binding IDMaster}" FontSize="14"/>
-                <DataGridTextColumn FontSize="14" Header="Описание заказа" Binding="{Binding Description}" />
-                <DataGridTextColumn FontSize="14" Header="Стоимость" Binding="{Binding Price}" />
-                <DataGridTextColumn FontSize="14" Header="Дата начала заказа" Binding="{Binding DateStart}" />
-                <DataGridTextColumn FontSize="14" Header="Дата окончания заказа" Binding="{Binding DateEnd}" />
-                <DataGridTextColumn FontSize="14" Header="Статус" Binding="{Binding Status}" />
+                <DataGridTextColumn Header="ID клиента" Binding="{Binding IDClient}" FontSize="14" IsReadOnly="False"/>
+                <DataGridTextColumn Header="ID мастера" Binding="{Binding IDMaster}" FontSize="14" IsReadOnly="False"/>
+                <DataGridTextColumn FontSize="14" Header="Описание заказа" Binding="{Binding Description}" IsReadOnly="False" />
+                <DataGridTextColumn FontSize="14" Header="Стоимость" Binding="{Binding Price}" IsReadOnly="False" />
+                <DataGridTextColumn FontSize="14" Header="Дата начала заказа" Binding="{Binding DateStart}" IsReadOnly="False" />
+                <DataGridTextColumn FontSize="14" Header="Дата окончания заказа" Binding="{Binding DateEnd}" IsReadOnly="False" />
+                <DataGridTextColumn FontSize="14" Header="Статус" Binding="{Binding Status}" IsReadOnly="False" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="buttonDelete" Content="Удалить заказ" Margin="0,180,10,0" VerticalAlignment="Top" Height="40" FontSize="16" FontWeight="Bold" Background="#FFD40202" Foreground="White" Click="buttonDelete_Click" Cursor="Hand" HorizontalAlignment="Right" Width="180"/>
-        <Button x:Name="buttonAdd" Content="Добавить зазказ" Margin="0,135,10,0" VerticalAlignment="Top" Height="40" FontSize="16" FontWeight="Bold" Background="#FF01B52D" Foreground="White" Cursor="Hand" Click="buttonAdd_Click" HorizontalAlignment="Right" Width="180"/>
-        <TextBox x:Name="textBoxMaster" Margin="0,105,319,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Right" Width="82" Cursor="IBeam"/>
-        <TextBox x:Name="textBoxDescription" Margin="0,169,319,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Right" Width="82" Cursor="IBeam"/>
-        <TextBox x:Name="textBoxPrice" Margin="0,46,225,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Right" Width="79" Cursor="IBeam"/>
-        <Label Content="ID мастера" Margin="0,76,319,0" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Right" Width="82"/>
-        <Label Content="Описание" Margin="0,135,319,0" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Right" Width="82"/>
-        <Label Content="Стоимость" Margin="0,14,225,0" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Right" Width="79"/>
+        <Button x:Name="buttonDelete" Content="Удалить заказ" Margin="0,128,10,0" VerticalAlignment="Top" Height="40" FontSize="16" FontWeight="Bold" Background="#FFD40202" Foreground="White" Click="buttonDelete_Click" Cursor="Hand" HorizontalAlignment="Right" Width="180"/>
+        <Button x:Name="buttonAdd" Content="Добавить зазказ" Margin="0,83,10,0" VerticalAlignment="Top" Height="40" FontSize="16" FontWeight="Bold" Background="#FF01B52D" Foreground="White" Cursor="Hand" Click="buttonAdd_Click" HorizontalAlignment="Right" Width="180"/>
+        <TextBox x:Name="textBoxMaster" Margin="181,77,0,0" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Left" Width="82" Cursor="IBeam"/>
+        <TextBox x:Name="textBoxDescription" Margin="10,142,0,0" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Left" Width="166" Cursor="IBeam"/>
+        <TextBox x:Name="textBoxPrice" Margin="97,77,0,0" VerticalAlignment="Top" FontSize="16" Cursor="IBeam" HorizontalAlignment="Left" Width="79"/>
+        <Label Content="ID мастера" Margin="181,48,0,0" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Left" Width="82"/>
+        <Label Content="Описание" Margin="10,113,0,0" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Left" Width="82"/>
+        <Label Content="Стоимость" Margin="97,48,0,0" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Left" Width="79"/>
         <Button x:Name="buttonBack" Content="&lt;-" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16" Height="33" Width="33" FontWeight="Bold" Foreground="White" Background="#FF02D6FF" Click="buttonBack_Click"/>
-        <TextBox x:Name="textBoxClient" Margin="0,46,319,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Right" Width="82" Cursor="IBeam"/>
-        <Label Content="ID клиента" Margin="0,12,319,0" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Right" Width="82"/>
-        <Label Content="Дата начала" Margin="0,14,116,0" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Right" Width="90"/>
-        <Label Content="Дата конца" Margin="0,14,10,0" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Right" Width="90"/>
-        <TextBox x:Name="textBoxStatus" Margin="0,105,225,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Right" Width="79" Cursor="IBeam"/>
-        <Label Content="Статус" Margin="0,73,225,0" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Right" Width="79"/>
-        <DatePicker x:Name="DatePickerStart" HorizontalAlignment="Left" Margin="239,45,0,0" VerticalAlignment="Top"/>
-        <DatePicker x:Name="DatePickerEnd" HorizontalAlignment="Left" Margin="344,45,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxClient" Margin="10,77,0,0" VerticalAlignment="Top" FontSize="16" Cursor="IBeam" HorizontalAlignment="Left" Width="82"/>
+        <Label Content="ID клиента" Margin="11,48,0,0" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Left" Width="82"/>
+        <Label Content="Дата начала" Margin="182,113,0,0" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Left" Width="90"/>
+        <Label Content="Дата конца" Margin="353,113,0,0" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Left" Width="90"/>
+        <Label Content="Статус" Margin="268,48,0,0" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Left" Width="79"/>
+        <DatePicker x:Name="DatePickerStart" Margin="182,139,0,0" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Left" Width="166"/>
+        <DatePicker x:Name="DatePickerEnd" Margin="353,139,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="170" FontSize="16"/>
+        <ComboBox x:Name="comboBoxStatus" HorizontalAlignment="Left" Margin="268,76,0,0" VerticalAlignment="Top" Width="120" FontSize="16" IsReadOnly="True" Cursor="Hand" Height="25">
+            <sys:String>В работе</sys:String>
+            <sys:String>Выполнено</sys:String>
+        </ComboBox>
 
     </Grid>
 </Page>

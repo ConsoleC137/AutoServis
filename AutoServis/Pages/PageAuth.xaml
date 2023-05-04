@@ -5,16 +5,17 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AutoServis.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="450"
+      d:DesignHeight="450" d:DesignWidth="900"
       Title="PageAuth">
 
     <Grid>
-        <TextBox x:Name="textBoxLogin" HorizontalAlignment="Center" Margin="0,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Cursor="IBeam" FontSize="16"/>
-        <Label Content="Логин" HorizontalAlignment="Left" Margin="140,76,0,0" VerticalAlignment="Top" Width="85" FontSize="14"/>
-        <Label Content="Пароль" HorizontalAlignment="Left" Margin="140,141,0,0" VerticalAlignment="Top" Width="85" FontSize="14"/>
-        <Button x:Name="buttonLogin" Content="Войти" HorizontalAlignment="Center" Margin="0,257,0,0" VerticalAlignment="Top" Width="170" Height="40" Cursor="Hand" FontSize="16" BorderBrush="#FF2EADFD" Background="#FF2EADFD" FontWeight="Bold" Foreground="White" BorderThickness="1,1,1,1" ClipToBounds="True">
+        <TextBox x:Name="textBoxLogin" HorizontalAlignment="Center" Margin="0,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Cursor="IBeam" FontSize="16"/>
+        <Label Content="Логин" HorizontalAlignment="Left" Margin="365,105,0,0" VerticalAlignment="Top" Width="85" FontSize="14"/>
+        <Label Content="Пароль" HorizontalAlignment="Left" Margin="365,178,0,0" VerticalAlignment="Top" Width="85" FontSize="14"/>
+        <Button x:Name="buttonLogin" Content="Войти" HorizontalAlignment="Center" Margin="0,294,0,0" VerticalAlignment="Top" Width="170" Height="40" Cursor="Hand" FontSize="16" BorderBrush="#FF2EADFD" Background="#FF2EADFD" FontWeight="Bold" Foreground="White" BorderThickness="1,1,1,1" ClipToBounds="True" Click="buttonLogin_Click">
 
         </Button>
-        <PasswordBox HorizontalAlignment="Center" Margin="0,170,0,0" VerticalAlignment="Top" Width="170" FontSize="16"/>
+        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Center" Margin="0,207,0,0" VerticalAlignment="Top" Width="170" FontSize="16"/>
+        <Label x:Name="LabelAuth" Content="" HorizontalAlignment="Center" Margin="0,262,0,0" VerticalAlignment="Top" Width="170" FontSize="14" Foreground="Red"/>
     </Grid>
 </Page>

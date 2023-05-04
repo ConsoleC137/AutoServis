@@ -5,11 +5,11 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AutoServis.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="450"
+      d:DesignHeight="450" d:DesignWidth="900"
       Title="PageChangeAdmins">
 
     <Grid Cursor="Hand">
-        <DataGrid x:Name="dataGridAdmins" AutoGenerateColumns="False" ItemsSource="{Binding Admins}" Margin="10,225,10,10">
+        <DataGrid x:Name="dataGridAdmins" AutoGenerateColumns="False" ItemsSource="{Binding Admins}" Margin="10,107,10,10">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding ID}" FontSize="14" IsReadOnly="True"/>
                 <DataGridTextColumn Header="ФИО" Binding="{Binding FIO}" FontSize="14"/>
@@ -17,14 +17,14 @@
                 <DataGridTextColumn Header="Пароль" Binding="{Binding Password}" FontSize="14"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="buttonDelete" Content="Удалить администратора" Margin="0,180,10,0" VerticalAlignment="Top" Height="40" FontSize="16" FontWeight="Bold" Background="#FFD40202" Foreground="White" Click="buttonDelete_Click" Cursor="Hand" HorizontalAlignment="Right" Width="215"/>
-        <Button x:Name="buttonAdd" Content="Добавить администратора" Margin="0,135,10,0" VerticalAlignment="Top" Height="40" FontSize="16" FontWeight="Bold" Background="#FF01B52D" Foreground="White" Cursor="Hand" Click="buttonAdd_Click" HorizontalAlignment="Right" Width="215"/>
-        <TextBox x:Name="textBoxFIO" Margin="0,107,160,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Right" Width="65" Cursor="IBeam"/>
-        <TextBox x:Name="textBoxLogin" Margin="0,107,85,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Right" Width="65" Cursor="IBeam"/>
-        <TextBox x:Name="textBoxPassword" Margin="0,107,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Right" Width="65" Cursor="IBeam"/>
-        <Label Content="ФИО" Margin="0,73,184,0" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Right" Width="41"/>
-        <Label Content="Логин" Margin="0,73,101,0" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Right" Width="49"/>
-        <Label Content="Пароль" Margin="0,73,17,0" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Right" Width="58"/>
+        <Button x:Name="buttonDelete" Content="Удалить администратора" Margin="0,62,10,0" VerticalAlignment="Top" Height="40" FontSize="16" FontWeight="Bold" Background="#FFD40202" Foreground="White" Click="buttonDelete_Click" Cursor="Hand" HorizontalAlignment="Right" Width="215"/>
+        <Button x:Name="buttonAdd" Content="Добавить администратора" Margin="0,17,10,0" VerticalAlignment="Top" Height="40" FontSize="16" FontWeight="Bold" Background="#FF01B52D" Foreground="White" Cursor="Hand" Click="buttonAdd_Click" HorizontalAlignment="Right" Width="215"/>
+        <TextBox x:Name="textBoxFIO" Margin="10,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Cursor="IBeam" HorizontalAlignment="Left" Width="250"/>
+        <TextBox x:Name="textBoxLogin" Margin="265,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Cursor="IBeam" HorizontalAlignment="Left" Width="100"/>
+        <TextBox x:Name="textBoxPassword" Margin="370,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Cursor="IBeam" HorizontalAlignment="Left" Width="100"/>
+        <Label Content="ФИО" Margin="10,51,0,0" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Left" Width="41"/>
+        <Label Content="Логин" Margin="265,51,0,0" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Left" Width="49"/>
+        <Label Content="Пароль" Margin="370,51,0,0" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Left" Width="58"/>
         <Button x:Name="buttonBack" Content="&lt;-" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16" Height="33" Width="33" FontWeight="Bold" Foreground="White" Background="#FF02D6FF" Click="buttonBack_Click"/>
-    </Grid>                                     
+    </Grid>
 </Page>
