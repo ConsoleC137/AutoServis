@@ -44,7 +44,7 @@ namespace AutoServis.Pages
 
         private void buttonChageOrders_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Frame.Navigate(new Pages.PageChandeOrders(Frame));
         }
 
         private void buttonBack_Click(object sender, RoutedEventArgs e)
