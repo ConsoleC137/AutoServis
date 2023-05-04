@@ -19,9 +19,9 @@
         </DataGrid>
         <Button x:Name="buttonDelete" Content="Удалить клиента" Margin="0,61,10,0" VerticalAlignment="Top" Height="40" FontSize="16" FontWeight="Bold" Background="#FFD40202" Foreground="White" Click="buttonDelete_Click" Cursor="Hand" HorizontalAlignment="Right" Width="215"/>
         <Button x:Name="buttonAdd" Content="Добавить клиента" Margin="0,16,10,0" VerticalAlignment="Top" Height="40" FontSize="16" FontWeight="Bold" Background="#FF01B52D" Foreground="White" Cursor="Hand" Click="buttonAdd_Click" HorizontalAlignment="Right" Width="215"/>
-        <TextBox x:Name="textBoxFIO" Margin="10,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Left" Width="250" Cursor="IBeam"/>
-        <TextBox x:Name="textBoxAuto" Margin="265,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Left" Width="100" Cursor="IBeam"/>
-        <TextBox x:Name="textBoxPhone" Margin="370,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Left" Width="125" Cursor="IBeam"/>
+        <TextBox x:Name="textBoxFIO" Margin="10,78,0,0" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Left" Width="250" Cursor="IBeam"/>
+        <TextBox x:Name="textBoxAuto" Margin="265,78,0,0" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Left" Width="100" Cursor="IBeam"/>
+        <TextBox x:Name="textBoxPhone" Margin="370,78,0,0" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Left" Width="125" Cursor="IBeam"/>
         <Label Content="ФИО" Margin="10,49,0,0" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Left" Width="41"/>
         <Label Content="Авто" Margin="265,49,0,0" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Left" Width="49"/>
         <Label Content="Тел." Margin="370,49,0,0" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Left" Width="58"/>
