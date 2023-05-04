@@ -12,10 +12,10 @@
         <DataGrid x:Name="dataGridOrders" AutoGenerateColumns="False" ItemsSource="{Binding Orders}" Margin="10,61,10,10">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding ID}" FontSize="14" IsReadOnly="True"/>
-                <DataGridTextColumn Header="ФИО клиента" Binding="{Binding Client}" FontSize="14" IsReadOnly="True"/>
+                <DataGridTextColumn Header="ФИО клиента" Binding="{Binding FIO}" FontSize="14" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Авто клиента" Binding="{Binding Auto}" FontSize="14" IsReadOnly="True"/>
                 <DataGridTextColumn FontSize="14" Header="Телефон клиента" Binding="{Binding Phone}" IsReadOnly="True" />
-                <DataGridTextColumn FontSize="14" Header="Описание заказа" Binding="{Binding Description}" IsReadOnly="True" />
+                <DataGridTextColumn FontSize="14" Header="Описание заказа" Binding="{Binding Desription}" IsReadOnly="True" />
                 <DataGridTextColumn FontSize="14" Header="Стоимость" Binding="{Binding Price}" IsReadOnly="True" />
                 <DataGridTextColumn FontSize="14" Header="Дата начала заказа" Binding="{Binding DateStart}" IsReadOnly="True" />
                 <DataGridTextColumn FontSize="14" Header="Дата окончания заказа" Binding="{Binding DateEnd}" IsReadOnly="True" />

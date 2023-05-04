@@ -53,7 +53,7 @@ namespace AutoServis.Pages
                                 Auto = auto,
                                 Phone = phone,
                                 Desription = decription,
-                                Price= price,
+                                Price = price,
                                 DateStart = dateStart,
                                 DateEnd = dateEnd,
                                 Status = status
@@ -79,16 +79,17 @@ namespace AutoServis.Pages
 
                 if (selectedOrder.Status == "В работе")
                 {
-                    selectedOrder.Status = "Выполнен";
-                    selectedOrder.DateEnd = DateTime.Today.ToLongDateString();
+                    selectedOrder.Status = "Выполнено";
+                    selectedOrder.DateEnd = DateTime.Now.ToString("dd.MM.yyyy");
                     string connectionString = "Data Source=MyDatabase.sqlite;Version=3;";
                     using (SQLiteConnection connection = new SQLiteConnection(connectionString))
                     {
                         connection.Open();
                         using (SQLiteCommand command = new SQLiteCommand(connection))
                         {
-                            command.CommandText = "UPDATE orders SET status=@status WHERE id=@id";
+                            command.CommandText = "UPDATE orders SET status=@status, end_time=@end_time WHERE id=@id";
                             command.Parameters.AddWithValue("@status", "Выполнен");
+                            command.Parameters.AddWithValue("@end_time", selectedOrder.DateEnd);
                             command.Parameters.AddWithValue("@id", selectedOrder.ID);
                             command.ExecuteNonQuery();
                         }

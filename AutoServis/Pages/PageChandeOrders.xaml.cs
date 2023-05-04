@@ -20,6 +20,49 @@ namespace AutoServis.Pages
             Loaded += PageChandeOrders_Loaded;
             Orders = new ObservableCollection<Order>();
             DataContext = this;
+            dataGridOrders.CellEditEnding += DataGridOrders_CellEditEnding;
+        }
+
+        private void DataGridOrders_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+            var textBox = e.EditingElement as TextBox;
+            var newValue = textBox.Text;
+
+            var order = e.Row.Item as Order;
+
+            if (e.Column.Header.ToString() == "ID клиента")
+                order.IDClient = newValue;
+            else if (e.Column.Header.ToString() == "ID мастера")
+                order.IDMaster = newValue;
+            else if (e.Column.Header.ToString() == "Описание")
+                order.Desription = newValue;
+            else if (e.Column.Header.ToString() == "Стоимость")
+                order.Price = newValue;
+            else if (e.Column.Header.ToString() == "Дата начала заказа")
+                order.DateStart = newValue;
+            else if (e.Column.Header.ToString() == "Дата окончания заказа")
+                order.DateEnd = newValue;
+            else if (e.Column.Header.ToString() == "Статус")
+                order.Status = newValue;
+
+            string connectionString = "Data Source=MyDatabase.sqlite;Version=3;";
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+                using (SQLiteCommand command = new SQLiteCommand(connection))
+                {
+                    command.CommandText = "UPDATE orders SET client_id=@client_id, master_id=@master_id, start_date=@start_date, end_time=@end_time, price=@price, description=@description, status=@status WHERE id=@id";
+                    command.Parameters.AddWithValue("@client_id", order.IDClient);
+                    command.Parameters.AddWithValue("@master_id", order.IDMaster);
+                    command.Parameters.AddWithValue("@start_date", order.DateStart);
+                    command.Parameters.AddWithValue("@end_time", order.DateEnd);
+                    command.Parameters.AddWithValue("@price", order.Price);
+                    command.Parameters.AddWithValue("@description", order.Desription);
+                    command.Parameters.AddWithValue("@status", order.Status);
+                    command.Parameters.AddWithValue("@id", order.ID);
+                    command.ExecuteNonQuery();
+                }
+            }
         }
 
         private void PageChandeOrders_Loaded(object sender, RoutedEventArgs e)
