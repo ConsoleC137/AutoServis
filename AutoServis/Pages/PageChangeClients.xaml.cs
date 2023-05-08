@@ -34,7 +34,7 @@ namespace AutoServis.Pages
 
             if (e.Column.Header.ToString() == "ФИО")
                 client.FIO = newValue;
-            else if (e.Column.Header.ToString() == "Номер автомобиля")
+            else if (e.Column.Header.ToString() == "ID автомобиля")
                 client.Auto = newValue;
             else if (e.Column.Header.ToString() == "Номер телефона")
                 client.Phone = newValue;
@@ -45,9 +45,9 @@ namespace AutoServis.Pages
                 connection.Open();
                 using (SQLiteCommand command = new SQLiteCommand(connection))
                 {
-                    command.CommandText = "UPDATE clients SET FIO=@FIO, numberOfCar=@numberOfCar, phone=@phone WHERE id=@id";
+                    command.CommandText = "UPDATE clients SET FIO=@FIO, car_id=@car_id, phone=@phone WHERE id=@id";
                     command.Parameters.AddWithValue("@FIO", client.FIO);
-                    command.Parameters.AddWithValue("@numberOfCar", client.Auto);
+                    command.Parameters.AddWithValue("@car_id", client.Auto);
                     command.Parameters.AddWithValue("@phone", client.Phone);
                     command.Parameters.AddWithValue("@id", client.ID);
                     command.ExecuteNonQuery();
@@ -61,7 +61,7 @@ namespace AutoServis.Pages
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
-                string query = "SELECT id, FIO, numberOfCar, phone FROM clients";
+                string query = "SELECT id, FIO, car_id, phone FROM clients";
                 using (SQLiteCommand command = new SQLiteCommand(query, connection))
                 {
                     using (SQLiteDataReader reader = command.ExecuteReader())
@@ -85,6 +85,15 @@ namespace AutoServis.Pages
                         }
                     }
                 }
+
+                using (var command = new SQLiteCommand("SELECT id FROM cars", connection))
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        comboBoxAuto.Items.Add(reader["id"]);
+                    }
+                }
             }
         }
 
@@ -106,8 +115,8 @@ namespace AutoServis.Pages
                     connection.Open();
                     using (SQLiteCommand command = new SQLiteCommand(connection))
                     {
-                        command.CommandText = "DELETE FROM clients WHERE numberOfCar=@numberOfCar AND phone=@phone";
-                        command.Parameters.AddWithValue("@numberOfCar", selectedClient.Auto);
+                        command.CommandText = "DELETE FROM clients WHERE car_id=@car_id AND phone=@phone";
+                        command.Parameters.AddWithValue("@car_id", selectedClient.Auto);
                         command.Parameters.AddWithValue("@phone", selectedClient.Phone);
                         try
                         {
@@ -132,12 +141,12 @@ namespace AutoServis.Pages
             {
                 connection.Open();
 
-                string insertQuery = "INSERT INTO clients (FIO, numberOfCar, phone) VALUES (@fio, @numberOfCar, @phone)";
+                string insertQuery = "INSERT INTO clients (FIO, car_id, phone) VALUES (@fio, @car_id, @phone)";
 
                 using (SQLiteCommand command = new SQLiteCommand(insertQuery, connection))
                 {
                     command.Parameters.AddWithValue("@fio", textBoxFIO.Text);
-                    command.Parameters.AddWithValue("@numberOfCar", textBoxAuto.Text);
+                    command.Parameters.AddWithValue("@car_id", comboBoxAuto.Text);
                     command.Parameters.AddWithValue("@phone", textBoxPhone.Text);
                     try
                     {
@@ -155,14 +164,13 @@ namespace AutoServis.Pages
                 {
                     ID = lastInsertRowId.ToString(),
                     FIO = textBoxFIO.Text,
-                    Auto = textBoxAuto.Text,
+                    Auto = comboBoxAuto.Text,
                     Phone = textBoxPhone.Text
                 };
 
                 Clients.Add(newClient);
 
                 textBoxFIO.Text = "";
-                textBoxAuto.Text = "";
                 textBoxPhone.Text = "";
 
                 dataGridClients.Items.Refresh();

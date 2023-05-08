@@ -29,7 +29,7 @@ namespace AutoServis.Pages
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
-                string query = "SELECT orders.id, clients.FIO, clients.numberOfCar, clients.phone, orders.description, orders.price, orders.start_date, orders.end_time, orders.status FROM orders INNER JOIN clients ON orders.client_id = clients.id";
+                string query = "SELECT orders.id, clients.FIO, clients.phone, cars.VIN, cars.mileage, cars.brand, cars.model, cars.year, orders.start_date, orders.end_time, orders.price, orders.description, orders.status FROM orders JOIN clients ON orders.client_id = clients.id JOIN cars ON clients.car_id = cars.id;";
                 using (SQLiteCommand command = new SQLiteCommand(query, connection))
                 {
                     using (SQLiteDataReader reader = command.ExecuteReader())
@@ -38,19 +38,29 @@ namespace AutoServis.Pages
                         {
                             string id = reader.GetInt16(0).ToString();
                             string fio = reader.GetString(1);
-                            string auto = reader.GetString(2);
-                            string phone = reader.GetString(3);
-                            string decription = reader.GetString(4);
-                            string price = reader.GetDouble(5).ToString();
-                            string dateStart = reader.GetString(6);
-                            string dateEnd = reader.GetString(7);
-                            string status = reader.GetString(8);
+                            string phone = reader.GetString(2);
+                            string vin = reader.GetString(3);
+                            string mileage = reader.GetInt16(4).ToString();
+                            string brand = reader.GetString(5);
+                            string model = reader.GetString(6);
+                            string year = reader.GetInt16(7).ToString();
+
+                            string dateStart = reader.GetString(8);
+                            string dateEnd = reader.GetString(9);
+                            string price = reader.GetDouble(10).ToString();
+                            string decription = reader.GetString(11);
+                            string status = reader.GetString(12);
+
 
                             OrderForMaster newOrder = new OrderForMaster()
                             {
                                 ID = id,
                                 FIO = fio,
-                                Auto = auto,
+                                VIN = vin,
+                                Mileage = mileage,
+                                Mark = brand,
+                                Model = model,
+                                Year = year,
                                 Phone = phone,
                                 Desription = decription,
                                 Price = price,
@@ -105,7 +115,11 @@ namespace AutoServis.Pages
     {
         public string ID { get; set; }
         public string FIO { get; set; }
-        public string Auto { get; set; }
+        public string VIN { get; set; }
+        public string Mileage { get; set; }
+        public string Mark { get; set; }
+        public string Model { get; set; }
+        public string Year { get; set; }
         public string Phone { get; set; }
         public string Desription { get; set; }
         public string Price { get; set; }

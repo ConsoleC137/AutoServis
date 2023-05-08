@@ -13,8 +13,12 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding ID}" FontSize="14" IsReadOnly="True"/>
                 <DataGridTextColumn Header="ФИО клиента" Binding="{Binding FIO}" FontSize="14" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Авто клиента" Binding="{Binding Auto}" FontSize="14" IsReadOnly="True"/>
-                <DataGridTextColumn FontSize="14" Header="Телефон клиента" Binding="{Binding Phone}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Телефон клиента" Binding="{Binding Phone}" FontSize="14" IsReadOnly="True"/>
+                <DataGridTextColumn FontSize="14" Header="VIN номер" Binding="{Binding VIN}" IsReadOnly="True" />
+                <DataGridTextColumn FontSize="14" Header="Пробег" Binding="{Binding Mileage}" />
+                <DataGridTextColumn FontSize="14" Header="Марка" Binding="{Binding Mark}" />
+                <DataGridTextColumn FontSize="14" Header="Модель"  Binding="{Binding Model}" />
+                <DataGridTextColumn FontSize="14" Header="Год выпуска"  Binding="{Binding Year}" />
                 <DataGridTextColumn FontSize="14" Header="Описание заказа" Binding="{Binding Desription}" IsReadOnly="True" />
                 <DataGridTextColumn FontSize="14" Header="Стоимость" Binding="{Binding Price}" IsReadOnly="True" />
                 <DataGridTextColumn FontSize="14" Header="Дата начала заказа" Binding="{Binding DateStart}" IsReadOnly="True" />

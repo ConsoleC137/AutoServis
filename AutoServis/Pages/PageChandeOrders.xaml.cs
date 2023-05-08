@@ -103,6 +103,23 @@ namespace AutoServis.Pages
                         }
                     }
                 }
+                using (var command = new SQLiteCommand("SELECT id FROM clients", connection))
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        comboBoxClient.Items.Add(reader["id"]);
+                    }
+                }
+
+                using (var command = new SQLiteCommand("SELECT id FROM masters", connection))
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        comboBoxMaster.Items.Add(reader["id"]);
+                    }
+                }
             }
         }
 
@@ -121,8 +138,8 @@ namespace AutoServis.Pages
                 string insertQuery = "INSERT INTO orders (client_id, master_id, start_date, end_time, price, description, status) VALUES (@client_id, @master_id, @start_date, @end_time, @price, @description, @status)";
                 using (SQLiteCommand command = new SQLiteCommand(insertQuery, connection))
                 {
-                    command.Parameters.AddWithValue("@client_id", textBoxClient.Text); 
-                    command.Parameters.AddWithValue("@master_id", textBoxMaster.Text);
+                    command.Parameters.AddWithValue("@client_id", comboBoxClient.Text); 
+                    command.Parameters.AddWithValue("@master_id", comboBoxMaster.Text);
                     command.Parameters.AddWithValue("@start_date", DatePickerStart.Text);
                     command.Parameters.AddWithValue("@end_time", DatePickerEnd.Text);
                     command.Parameters.AddWithValue("@price", textBoxPrice.Text);
@@ -143,8 +160,8 @@ namespace AutoServis.Pages
                 Order newOrder = new Order
                 {
                     ID = lastInsertRowId.ToString(),
-                    IDClient = textBoxClient.Text,
-                    IDMaster = textBoxMaster.Text,
+                    IDClient = comboBoxClient.Text,
+                    IDMaster = comboBoxMaster.Text,
                     Desription = textBoxDescription.Text,
                     Price = textBoxPrice.Text,
                     DateStart = DatePickerStart.Text,
@@ -154,8 +171,6 @@ namespace AutoServis.Pages
 
                 Orders.Add(newOrder);
 
-                textBoxClient.Text = "";
-                textBoxClient.Text = "";
                 textBoxDescription.Text = "";
                 textBoxPrice.Text = "";
                 DatePickerStart.Text = "";
@@ -186,6 +201,26 @@ namespace AutoServis.Pages
 
                 dataGridOrders.Items.Refresh();
             }
+        }
+
+        private void buttonChageAdmins_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(new Pages.PageChangeAdmins(Frame));
+        }
+
+        private void buttonChageMasters_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(new Pages.PageChangeMasters(Frame));
+        }
+
+        private void buttonChageClients_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(new Pages.PageChangeClients(Frame));
+        }
+
+        private void buttonChageCars_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(new Pages.PageChangeCars(Frame));
         }
     }
 

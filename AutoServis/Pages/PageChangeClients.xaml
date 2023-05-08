@@ -13,19 +13,19 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding ID}" FontSize="14" IsReadOnly="True"/>
                 <DataGridTextColumn Header="ФИО" Binding="{Binding FIO}" FontSize="14"/>
-                <DataGridTextColumn Header="Номер автомобиля" Binding="{Binding Auto}" FontSize="14"/>
+                <DataGridTextColumn Header="ID автомобиля" Binding="{Binding Auto}" FontSize="14"/>
                 <DataGridTextColumn Header="Номер телефона" Binding="{Binding Phone}" FontSize="14"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="buttonDelete" Content="Удалить клиента" Margin="0,61,10,0" VerticalAlignment="Top" Height="40" FontSize="16" FontWeight="Bold" Background="#FFD40202" Foreground="White" Click="buttonDelete_Click" Cursor="Hand" HorizontalAlignment="Right" Width="215"/>
         <Button x:Name="buttonAdd" Content="Добавить клиента" Margin="0,16,10,0" VerticalAlignment="Top" Height="40" FontSize="16" FontWeight="Bold" Background="#FF01B52D" Foreground="White" Cursor="Hand" Click="buttonAdd_Click" HorizontalAlignment="Right" Width="215"/>
         <TextBox x:Name="textBoxFIO" Margin="10,78,0,0" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Left" Width="250" Cursor="IBeam"/>
-        <TextBox x:Name="textBoxAuto" Margin="265,78,0,0" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Left" Width="100" Cursor="IBeam"/>
         <TextBox x:Name="textBoxPhone" Margin="370,78,0,0" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Left" Width="125" Cursor="IBeam"/>
         <Label Content="ФИО" Margin="10,49,0,0" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Left" Width="41"/>
-        <Label Content="Авто" Margin="265,49,0,0" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Left" Width="49"/>
+        <Label Content="ID авто" Margin="265,49,0,0" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Left" Width="64"/>
         <Label Content="Тел." Margin="370,49,0,0" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Left" Width="58"/>
         <Button x:Name="buttonBack" Content="&lt;-" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16" Height="33" Width="33" FontWeight="Bold" Foreground="White" Background="#FF02D6FF" Click="buttonBack_Click"/>
+        <ComboBox x:Name="comboBoxAuto" HorizontalAlignment="Left" Margin="265,78,0,0" VerticalAlignment="Top" Width="100" FontSize="16" Height="23"/>
 
     </Grid>
 </Page>
