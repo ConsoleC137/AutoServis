@@ -58,7 +58,7 @@ namespace AutoServis.Pages
                 connection.Open();
                 using (SQLiteCommand command = new SQLiteCommand(connection))
                 {
-                    command.CommandText = "UPDATE cars SET VIN=@VIN, mileage=@mileage, mark=@mark, model=@model, year=@year WHERE id=@id";
+                    command.CommandText = "UPDATE cars SET VIN=@VIN, mileage=@mileage, brand=@mark, model=@model, year=@year WHERE id=@id";
                     command.Parameters.AddWithValue("@VIN", car.VIN);
                     command.Parameters.AddWithValue("@mileage", car.Mileage);
                     command.Parameters.AddWithValue("@mark", car.Mark);
