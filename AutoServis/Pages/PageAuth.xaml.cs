@@ -32,7 +32,7 @@ namespace AutoServis.Pages
                     var result = command.ExecuteScalar();
 
                     if (result != null)
-                        Frame.Navigate(new Pages.PageAdmin(Frame));
+                        Frame.Navigate(new Pages.PageChandeOrders(Frame));
                     else
                     {
                         command.CommandText = "SELECT id FROM masters WHERE login = @login AND password = @password";
