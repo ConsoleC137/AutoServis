@@ -34,8 +34,8 @@ namespace AutoServis.Pages
                 order.IDClient = newValue;
             else if (e.Column.Header.ToString() == "ID мастера")
                 order.IDMaster = newValue;
-            else if (e.Column.Header.ToString() == "Описание")
-                order.Desription = newValue;
+            else if (e.Column.Header.ToString() == "Описание заказа")
+                order.Description = newValue;
             else if (e.Column.Header.ToString() == "Стоимость")
                 order.Price = newValue;
             else if (e.Column.Header.ToString() == "Дата начала заказа")
@@ -57,7 +57,7 @@ namespace AutoServis.Pages
                     command.Parameters.AddWithValue("@start_date", order.DateStart);
                     command.Parameters.AddWithValue("@end_time", order.DateEnd);
                     command.Parameters.AddWithValue("@price", order.Price);
-                    command.Parameters.AddWithValue("@description", order.Desription);
+                    command.Parameters.AddWithValue("@description", order.Description);
                     command.Parameters.AddWithValue("@status", order.Status);
                     command.Parameters.AddWithValue("@id", order.ID);
                     command.ExecuteNonQuery();
@@ -76,6 +76,7 @@ namespace AutoServis.Pages
                 {
                     using (SQLiteDataReader reader = command.ExecuteReader())
                     {
+                        Orders.Clear();
                         while (reader.Read())
                         {
                             string id = reader.GetInt16(0).ToString();
@@ -92,7 +93,7 @@ namespace AutoServis.Pages
                                 ID = id,
                                 IDClient = client,
                                 IDMaster = master,
-                                Desription = decription,
+                                Description = decription,
                                 Price = price,
                                 DateStart = dateStart,
                                 DateEnd = dateEnd,
@@ -105,21 +106,15 @@ namespace AutoServis.Pages
                 }
                 using (var command = new SQLiteCommand("SELECT id FROM clients", connection))
                 using (var reader = command.ExecuteReader())
-                {
                     while (reader.Read())
-                    {
-                        comboBoxClient.Items.Add(reader["id"]);
-                    }
-                }
+                        if (!comboBoxClient.Items.Contains(reader["id"]))
+                            comboBoxClient.Items.Add(reader["id"]);
 
                 using (var command = new SQLiteCommand("SELECT id FROM masters", connection))
                 using (var reader = command.ExecuteReader())
-                {
                     while (reader.Read())
-                    {
-                        comboBoxMaster.Items.Add(reader["id"]);
-                    }
-                }
+                        if (!comboBoxMaster.Items.Contains(reader["id"]))
+                            comboBoxMaster.Items.Add(reader["id"]);
             }
         }
 
@@ -162,7 +157,7 @@ namespace AutoServis.Pages
                     ID = lastInsertRowId.ToString(),
                     IDClient = comboBoxClient.Text,
                     IDMaster = comboBoxMaster.Text,
-                    Desription = textBoxDescription.Text,
+                    Description = textBoxDescription.Text,
                     Price = textBoxPrice.Text,
                     DateStart = DatePickerStart.Text,
                     DateEnd = DatePickerEnd.Text,
@@ -229,7 +224,7 @@ namespace AutoServis.Pages
         public string ID { get; set; }
         public string IDClient { get; set; }
         public string IDMaster { get; set; }
-        public string Desription { get; set; }
+        public string Description { get; set; }
         public string Price { get; set; }
         public string DateStart { get; set; }
         public string DateEnd { get; set; }
