@@ -170,7 +170,7 @@ namespace AutoServis.Pages
 
                 string connectionString = "Data Source=MyDatabase.sqlite;Version=3;";
                 using (SQLiteConnection connection = new SQLiteConnection(connectionString))
-                {Ы
+                {
                     connection.Open();
                     using (SQLiteCommand command = new SQLiteCommand(connection))
                     {
