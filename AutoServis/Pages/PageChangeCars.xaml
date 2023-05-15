@@ -19,7 +19,7 @@
                     <DataGridTextColumn Header="Пробег" Binding="{Binding Mileage}" FontSize="14" IsReadOnly="False"/>
                     <DataGridTextColumn FontSize="14" Header="Марка" Binding="{Binding Mark}" IsReadOnly="False" />
                     <DataGridTextColumn FontSize="14" Header="Модель" Binding="{Binding Model}" IsReadOnly="False" />
-                    <DataGridTextColumn FontSize="14" Header="Год выпуска" Binding="{Binding DateStart}" IsReadOnly="False" />
+                    <DataGridTextColumn FontSize="14" Header="Год выпуска" Binding="{Binding Year}" IsReadOnly="False" />
                 </DataGrid.Columns>
             </DataGrid>
             <Button x:Name="buttonDelete" Content="Удалить автомобиль" Margin="0,128,10,0" VerticalAlignment="Top" Height="40" FontSize="16" FontWeight="Bold" Background="#FFD40202" Foreground="White" Click="buttonDelete_Click" Cursor="Hand" HorizontalAlignment="Right" Width="180"/>
